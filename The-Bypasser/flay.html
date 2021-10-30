@@ -1,0 +1,253 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="description" content="This linkvertise bypasser is an easy to use tool for bypassing linkvertise ad-links" />
+    <title>Linkvertise Bypasser</title>
+    <meta name="google-site-verification" content="Rwcj2iy55rHn9_bXzlhWOrFPuc81-Bi_ztA_gYGjUlE" />
+        <meta HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/black/pace-theme-flash.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+     <meta name="keywords" content="linkvertise bypasser, linkvertise bypass, universal bypass, linkvertise hack, linkvertise, link vertise, bypasser, bypass linkvertise, how to bypass linkvertise, how to skip linkvertise, linkvertise skipper, skip linkvertise, skip linkvertise ads, linkvertise ads bypass, linkvertise ads bypasser" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/favicon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h2 class="display-4">Ad-Link Bypasser</h2>
+			<p class="display-5"><b><code>Works best on Google Chrome</code></b></p><br>
+			<p class="lead">Official Status: <code>Working</code></p>
+            <h3 id=count></h3>
+            <h3 id=count></h3>
+            <p class="lead">Put the ad-link that you want bypassed inside the textbox. Then press the Bypass Ad-Link button.</p>
+			    <p class="lead">Ad-Link Bypasser not working? Try <a href="https://thebypasser.com/versions/version2.html">Ad-Link Bypasser Version 2</a></p>
+			    <p class="lead"><u>If you don't get an output link, press the bypass button again</u></p>
+            <div id="logic">
+                <input type="text" id="input_link" placeholder="Insert Ad-Link Link Here" class="input_box">
+                <br>
+                <div class="buttons">
+                    <button id="submit_btn" class="button" onclick="bypass()">Bypass Ad-Link</button>
+                </div>
+                <br>
+                <center><h3>Output Link:</h3></center>
+                <a href="#" id="results"></a>
+            </div>
+        </div>
+    </div>
+    
+    <center><div class="footer"><center><p class="lead"><a href="https://discord.com/invite/9ztVfGPwDb">Join the Discord!</a></p></center></div></center>
+    
+    <script data-cfasync='false' type='text/javascript' src='//p412311.clksite.com/adServe/banners?tid=OM1BYPASSER_DI'></script>
+    
+    <script>
+window.notify=0
+function closenotif(){
+	
+}
+function opennotif(){
+	
+}
+function opennotifforce(){
+		
+}
+function auto(){
+	var queryDict = {}
+	location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]})
+	if (typeof(queryDict.link)=="string"){
+		document.getElementById('bypassentry').value=queryDict.link
+	}
+	if (queryDict.start=='true'){
+		bypass()
+	}
+	if (queryDict.redir=='true'){
+		window.autoRedir=true
+	}
+}
+function fill_log(success){
+	
+}
+function make_output(output){
+	document.getElementById("results").href=output
+	document.getElementById("results").innerHTML=output
+}
+function clear_output(){
+	document.getElementById("results").innerHTML="<a id='results' style='color:#2576f7;word-break: break-all;' target='_blank' ></a>"	
+}
+function error_output(){
+	
+}
+//Linkvertise bypasser javascript by GamesModPlus. Bypass method from greasyfork linkvertise bypasser https://greasyfork.org/fr-CA/scripts/409156-linkvertise-bypass/code
+    
+    
+    
+function bypass (){
+	const months = ["https://gmp1linkvertisecors.herokuapp.com/",
+    "https://gmp2linkvertisecors.herokuapp.com/",
+	"https://gmp3linkvertisecors.herokuapp.com/",
+	"https://gmp4linkvertisecors.herokuapp.com/"];
+    const randomMonth = months[Math.floor(Math.random() * months.length)];
+
+
+    if (document.getElementById('input_link').value.includes("dynamic")) {
+		if (document.getElementById('input_link').value.includes("&o=sharing")) {
+			var mystring = document.getElementById('input_link').value;
+			finString = mystring.toString();
+			var newString = finString.replace("%3D", "");
+			var newString1 = newString.replace("%3D", "");
+			var newString2 = newString1.replace("%3D", "");
+			
+			var str = newString2;  
+			var encodedstr = str.split('dynamic?r=').pop().split('&o=sharing')[0];
+    
+			var decodedStringAtoB = atob(encodedstr);
+			document.getElementById("results").href=decodedStringAtoB
+			document.getElementById("results").innerHTML=decodedStringAtoB
+		}
+		else {
+		    if (document.getElementById('input_link').value.includes("dynamic/?r=")) {
+                var testStr = document.getElementById('input_link').value;
+                var splitStr = testStr.substring(testStr.indexOf('dynamic/?r=') + 11);
+        
+                document.getElementById("results").innerHTML=splitStr
+        
+                var decodedStringAtoB = atob(splitStr);
+                document.getElementById("results").href=decodedStringAtoB
+	            document.getElementById("results").innerHTML=decodedStringAtoB
+            }
+            else {
+                var testStr = document.getElementById('input_link').value;
+                var splitStr = testStr.substring(testStr.indexOf('dynamic?r=') + 10);
+        
+                document.getElementById("results").innerHTML=splitStr
+        
+                var decodedStringAtoB = atob(splitStr);
+                document.getElementById("results").href=decodedStringAtoB
+	            document.getElementById("results").innerHTML=decodedStringAtoB
+            }
+		}
+    }
+    else {
+        window.redirUrl=null
+
+	window.corsbypass = "https://toksaver.com/cors?url="
+	//window.corsbypass = 'https://tool-center.net/CorsAPI/proxy.php'
+	
+	window.bypasserLog=[]
+	
+	window.bypasserStatus='loading'
+	
+	var link = document.getElementById('input_link').value
+
+	clear_output()
+
+	try{
+		var begin = link.match(/\d+/)
+		var end = link.match(/\?/)
+		if (end==null){
+			var idname = link.slice(begin.index, link.length)
+			}
+		else {
+			var idname = link.slice(begin.index, end.index)
+			}
+		}
+	catch(error){
+        console.error('Error at step 1 | Broken link: Make sure the link that you entered is from linkvertise and is not missing parts')
+		window.bypasserStatus='fail'
+		return
+	}
+	
+	try{
+		var http = new XMLHttpRequest();
+		var url = window.corsbypass+"?url=https://publisher.linkvertise.com/api/v1/redirect/link/static/"+idname
+		http.open("GET", url);
+		http.send()
+	}
+	catch(error){
+        console.error('Error at step 2 | Error getting api link with CORS: The CORS bypasser seems to be having problems, please try using the bypasser later')
+		window.bypasserStatus='fail'
+		return
+	}
+	http.onload = function(e){
+		try{
+			var apiData=JSON.parse(JSON.parse(http.responseText).response)
+		}
+		catch(error){
+            console.error('Error at step 3 | Error getting api link CORS content: The CORS bypasser gave the wrong output or the linkvertise link is invalid')
+			window.bypasserStatus='fail'
+			return
+		}
+		
+		let key = {
+			timestamp: new Date().getTime(),
+			random: "6548307"
+		}
+		
+		try{
+			key.link_id = apiData.data.link.id
+		}
+		catch(error){
+            console.error('Error at step 4 | Error get failed, make sure the link you entered is correct and if it is try bypassing again')
+			window.bypasserStatus='fail'
+			return
+		}
+		
+		try{
+			encodedKey = JSON.stringify({serial: btoa(JSON.stringify(key))})
+		}
+		catch(error){
+            console.log('Error at step 5 | Error encoding key: The key found could not be encoded sorry')
+			window.bypasserStatus='fail'
+			return
+		}
+		
+		try{
+			var http2 = new XMLHttpRequest();
+			var url2 = window.corsbypass+"?url=https://publisher.linkvertise.com/api/v1/redirect/link/"+idname+"/target&data="+encodedKey
+			http2.open("GET", url2);
+			http2.send()
+		}
+		catch(error){
+            console.log('step 6 | Posted to redir api link | ("https://publisher.linkvertise.com/api/v1/redirect/link/'+idname+'/target")')
+			window.bypasserStatus='fail'
+			return
+		}
+		http2.onload = function(e){
+			try{
+				var redirData=JSON.parse(JSON.parse(http2.responseText).response)
+			}
+			catch(error){
+                console.error('Error at step 7 | Error getting redir api link CORS content: The CORS bypasser gave the wrong output or the linkvertise link is invalid')
+				window.bypasserStatus='fail'
+				return
+			}
+			
+			try{
+				var redirUrl=redirData.data.target
+				window.redirUrl=redirUrl
+			}
+			catch(error){
+                console.error('Error at step 8 | Error post failed try bypassing the link again')
+				window.bypasserStatus='fail'
+				return
+			}
+			window.bypasserStatus='success'
+			make_output(redirUrl)
+			if (window.autoRedir==true){
+				top.window.location.href=redirUrl
+			}
+			return
+		}
+	}
+    }
+}
+    
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
